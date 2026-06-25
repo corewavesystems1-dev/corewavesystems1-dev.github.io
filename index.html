@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Pizza Puzzle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #E53935;
+            --primary-dark: #C62828;
+            --primary-light: #FF6F61;
+            --accent: #FF8F00;
+            --bg-dark: #0F0F14;
+            --bg-card: #1A1A24;
+            --bg-card-hover: #22222E;
+            --text-primary: #F1F1F5;
+            --text-secondary: #A0A0B8;
+            --text-muted: #6C6C80;
+            --border: #2A2A3A;
+            --glow-primary: rgba(229, 57, 53, 0.15);
+            --glow-accent: rgba(255, 143, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background animated gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 20% 50%, var(--glow-primary) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, var(--glow-accent) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 80%, rgba(156, 39, 176, 0.05) 0%, transparent 50%);
+            animation: bgShift 20s ease-in-out infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes bgShift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-2%, 1%) rotate(1deg); }
+            100% { transform: translate(1%, -1%) rotate(-1deg); }
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 20, 0.7);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+        }
+
+        .logo-text {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--primary-light);
+        }
+
+        .header-badge {
+            padding: 6px 16px;
+            background: rgba(229, 57, 53, 0.1);
+            border: 1px solid rgba(229, 57, 53, 0.2);
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+            color: var(--primary-light);
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 80px 40px 50px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(229, 57, 53, 0.08);
+            border: 1px solid rgba(229, 57, 53, 0.15);
+            border-radius: 30px;
+            font-size: 0.85em;
+            font-weight: 500;
+            color: var(--primary-light);
+            margin-bottom: 25px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .hero-badge::before {
+            content: '🔒';
+            font-size: 1em;
+        }
+
+        .hero h1 {
+            font-size: 3.2em;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 18px;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .hero p {
+            font-size: 1.15em;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+
+        .hero-meta-item strong {
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 35px;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        .toc-title {
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-light);
+            margin-bottom: 18px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92em;
+            font-weight: 400;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-list a::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .toc-list a:hover {
+            background: rgba(229, 57, 53, 0.08);
+            color: var(--text-primary);
+        }
+
+        /* Section Card */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 35px 40px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .section-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(229, 57, 53, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.25);
+        }
+
+        .section-card h2 {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+
+        .section-card p {
+            color: var(--text-secondary);
+            font-size: 1em;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-card strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(229, 57, 53, 0.06);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 18px 22px;
+            margin: 15px 0;
+        }
+
+        .highlight-box p {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            margin: 0;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .info-item-icon {
+            font-size: 1.2em;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-item-text {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border);
+            background: rgba(15, 15, 20, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-logo {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.85em;
+        }
+
+        .footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            .hero {
+                padding: 50px 20px 30px;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .main-content {
+                padding: 0 20px 60px;
+            }
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+            .section-card {
+                padding: 25px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-badge {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">
+            <div class="logo-icon">🍕</div>
+            <div class="logo-text">Pizza <span>Puzzle</span></div>
+        </a>
+        <div class="header-badge">📄 Legal Document</div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">Your Privacy Matters to Us</div>
+        <h1>Privacy Policy</h1>
+        <p>We are committed to safeguarding your privacy. This document explains how Pizza Puzzle handles your information transparently and responsibly.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                📅 <strong>Last Updated:</strong>&nbsp;June 26, 2026
+            </div>
+            <div class="hero-meta-item">
+                📱 <strong>App:</strong>&nbsp;Pizza Puzzle
+            </div>
+            <div class="hero-meta-item">
+                🌐 <strong>Platform:</strong>&nbsp;Android
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <div class="toc-title">📋 Table of Contents</div>
+            <ul class="toc-list">
+                <li><a href="#section1">Information Collection & Use</a></li>
+                <li><a href="#section2">Automatically Collected Information</a></li>
+                <li><a href="#section3">Third-Party Services & SDKs</a></li>
+                <li><a href="#section4">Data Retention & Deletion</a></li>
+                <li><a href="#section5">Children's Privacy (COPPA)</a></li>
+                <li><a href="#section6">Permissions</a></li>
+                <li><a href="#section7">Security</a></li>
+                <li><a href="#section8">Your Rights</a></li>
+                <li><a href="#section9">Changes to This Policy</a></li>
+                <li><a href="#section10">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Section 1 -->
+        <div class="section-card" id="section1">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Information Collection and Use</h2>
+            </div>
+            <p><strong>Pizza Puzzle</strong> is a standalone, offline puzzle game. We <strong>do not collect, store, transmit, or share</strong> any personally identifiable information (PII) or personal data from our users.</p>
+            <div class="highlight-box">
+                <p>All game progress, settings, levels, and high scores are saved <strong>locally on your device only</strong> using Android SharedPreferences. This data never leaves your device and is not accessible to us or any third party.</p>
+            </div>
+            <p>We do not require you to create an account, log in, provide your name, email address, phone number, or any other personal information to use the App.</p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section-card" id="section2">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Automatically Collected Information</h2>
+            </div>
+            <p>While <strong>we do not actively collect any data</strong>, the App distribution platform (Google Play Store) and your device's operating system may automatically collect certain diagnostic and usage data as governed by their respective privacy policies. This may include:</p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-item-icon">📊</div>
+                    <div class="info-item-text">App performance metrics and crash reports (via Google Play Console)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">📱</div>
+                    <div class="info-item-text">Device model, OS version, and basic diagnostics</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">📥</div>
+                    <div class="info-item-text">App install and uninstall statistics</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">🔋</div>
+                    <div class="info-item-text">Battery and network usage statistics</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px;">We <strong>do not have access</strong> to personally identifiable data through these platform services. This data is handled entirely by Google as per their <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light);">Privacy Policy</a>.</p>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section-card" id="section3">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Third-Party Services and SDKs</h2>
+            </div>
+            <p>Currently, Pizza Puzzle <strong>does not integrate</strong> any of the following third-party services:</p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-item-icon">❌</div>
+                    <div class="info-item-text">No analytics SDKs (e.g., Firebase Analytics, Google Analytics)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">❌</div>
+                    <div class="info-item-text">No advertising frameworks (e.g., AdMob, Unity Ads)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">❌</div>
+                    <div class="info-item-text">No social media SDKs (e.g., Facebook SDK)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">❌</div>
+                    <div class="info-item-text">No tracking or user profiling tools</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px;">If we introduce any such services in the future, this Privacy Policy will be updated accordingly, and any data collection will be fully compliant with Google Play Console Developer Program Policies.</p>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section-card" id="section4">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>Data Retention and Deletion</h2>
+            </div>
+            <p>Because we <strong>do not collect or store</strong> your personal data on any servers, there is no data for us to retain, process, or delete on our end.</p>
+            <div class="highlight-box">
+                <p><strong>To delete your locally stored game data:</strong> Go to your device's Settings → Apps → Pizza Puzzle → Storage → Clear Data. Alternatively, you can simply uninstall the App from your device.</p>
+            </div>
+            <p>Once game data is cleared or the App is uninstalled, all locally stored game progress, high scores, and level data will be <strong>permanently and irreversibly deleted</strong>.</p>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section-card" id="section5">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>Children's Privacy (COPPA & Families Policy)</h2>
+            </div>
+            <p>Our App is designed to be <strong>safe and enjoyable for users of all ages</strong>. We do not knowingly collect personally identifiable information from anyone, including children under the age of 13.</p>
+            <p>Since the App operates entirely <strong>offline</strong> and does not collect, store, or transmit any personal data, it inherently complies with:</p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-item-icon">🛡️</div>
+                    <div class="info-item-text"><strong>COPPA</strong> — Children's Online Privacy Protection Act (United States)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">🇪🇺</div>
+                    <div class="info-item-text"><strong>GDPR-K</strong> — General Data Protection Regulation for Children (EU)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">👨‍👩‍👧</div>
+                    <div class="info-item-text"><strong>Google Play Families Policy</strong> — For apps used by children</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">✅</div>
+                    <div class="info-item-text"><strong>No Ads, No In-App Purchases, No External Links</strong> visible to children</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section-card" id="section6">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>Permissions</h2>
+            </div>
+            <p>Pizza Puzzle <strong>does not request any dangerous or sensitive permissions</strong>. The App does not access:</p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-item-icon">📍</div>
+                    <div class="info-item-text">Location (GPS or Network-based)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">📷</div>
+                    <div class="info-item-text">Camera or Microphone</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">📇</div>
+                    <div class="info-item-text">Contacts, Call Logs, or SMS</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">📂</div>
+                    <div class="info-item-text">External Storage or Files</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px;">The App only uses basic system resources required for rendering the game and saving progress locally.</p>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="section-card" id="section7">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>Security</h2>
+            </div>
+            <p>We value your trust in using our App. Since <strong>no personal information is transmitted over the internet</strong> or stored on external servers by us, the risk of data breaches, unauthorized access, or data theft related to our App is virtually non-existent.</p>
+            <p>Your game data is stored locally on your device and is protected by your device's own security mechanisms (screen lock, encryption, etc.).</p>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="section-card" id="section8">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>Your Rights</h2>
+            </div>
+            <p>As a user, you have the following rights regarding your data:</p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-item-icon">🔍</div>
+                    <div class="info-item-text"><strong>Right to Know:</strong> We confirm that no personal data is collected by us.</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">🗑️</div>
+                    <div class="info-item-text"><strong>Right to Delete:</strong> Clear App data or uninstall to remove all local data.</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">🚫</div>
+                    <div class="info-item-text"><strong>Right to Opt-Out:</strong> No data sharing occurs, so no opt-out is needed.</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">📋</div>
+                    <div class="info-item-text"><strong>Right to Access:</strong> All your data is visible within the App itself.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9 -->
+        <div class="section-card" id="section9">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2>Changes to This Privacy Policy</h2>
+            </div>
+            <p>We may update our Privacy Policy from time to time to reflect changes in legal or regulatory requirements, or changes to our App's features. We will notify you of any changes by updating the <strong>"Last Updated"</strong> date at the top of this policy.</p>
+            <p>We encourage you to review this Privacy Policy periodically. Your continued use of the App after any modifications indicates your acceptance of the updated policy.</p>
+        </div>
+
+        <!-- Section 10 -->
+        <div class="section-card" id="section10">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2>Contact Us</h2>
+            </div>
+            <p>If you have any questions, concerns, or suggestions regarding this Privacy Policy or our data practices, please feel free to contact us:</p>
+            <div class="highlight-box">
+                <p>📧 Email: <a href="mailto:your-email@example.com" style="color: var(--primary-light); font-weight: 600;">your-email@example.com</a></p>
+            </div>
+            <p>We will make every effort to respond to your inquiry within <strong>48 hours</strong>.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">🍕 Pizza Puzzle</div>
+        <p>&copy; 2026 Pizza Puzzle. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="#">Privacy Policy</a> &nbsp;•&nbsp; <a href="#">Terms & Conditions</a>
+        </p>
+    </footer>
+
+</body>
+</html>
